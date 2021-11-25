@@ -60,8 +60,8 @@
         var ele = document.getElementById("mindfulBrowsingConfirm");
         ele.parentNode.removeChild(ele);
         var now = new Date();
-        // Set for 10 minutes from now.
-        var timeout_diff = (10*60000);
+        // Set for 5 minutes from now.
+        var timeout_diff = (5*60000);
         timeouts[site_name] = now.getTime() + timeout_diff;
         mindfulBrowsing.saveSettings();
         was_in_timeout = true;
@@ -112,11 +112,11 @@
         ele.id="mindfulBrowsingConfirm";
         ele.innerHTML = [
         "<div class='mindfulBrowsingHeading'>",
-            "<h1>Do you want to " + go_verb + " " +site_name+"?</h1>",
-            "<h2>You said you'd usually rather "+rather+". :)</h2>",
+            "<h1>" + go_verb + "</h1>",
+            "<h2>" + rather + "</h2>",
         "</div>",
         "<div class='options'>",
-            "<a class='mindfulBtn' id='mindfulBrowsingContinue' href='#'>Yes, 10 minutes.</a>",
+            "<a class='mindfulBtn' id='mindfulBrowsingContinue' href='#'>Yes, 5 minutes.</a>",
             "<a class='mindfulBtn' id='mindfulBrowsingLeave' href='javascript:window.open(location,\"_self\");window.close();'>Actually, nah.</a>",
         "</div>",
         "<a href='" + currentPhoto["credit_url"] + "' id='mindfulBrowsingPhotoCredit'>Photo by " + currentPhoto["credit"] + "</a>"
@@ -130,8 +130,7 @@
         // console.log(base64)
         if (base64 != undefined) {
             ele.style.background = "inherit";
-            ele.style.backgroundColor = "rgba(97, 144, 187, 0.92)";
-            ele.style.backgroundImage = "url(" + base64 + ")";
+            ele.style.backgroundColor = "rgba(35, 35, 35, 1)";
         }
         ele.style.backgroundSize = "cover";
         ele.style.backgroundPosition = "center center";
